@@ -1,10 +1,7 @@
-const router = require("express").Router()
-const userController = require("../controller/userController")
-const jwt = require('jsonwebtoken');
+const router = require("express").Router();
+const userController = require("../controller/userController");
 
 
-router.get('/', userController.getIndex)
-
-
+router.get("/", userController.getIndex);
 
 module.exports = router;
