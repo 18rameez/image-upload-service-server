@@ -20,6 +20,18 @@ const storage = multer.diskStorage({
     cb(null, fileName + uniqueId + ext);
   },
 });
-const upload = multer({ storage: storage });
+const upload = multer({
+   storage: storage,
+   fileFilter: function (req, file, cb) {
+    // Check if uploaded file is an image
+    const allowedMimes = ['image/jpeg', 'image/png', 'image/gif'];
+    if (allowedMimes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      const err = JSON.stringify({error : 'Invalid file type. Only JPEG, PNG, and GIF files are allowed.'} ) 
+      return cb(err, false);
+    }
+  }
+ });
 
 exports.imageUpload = upload;

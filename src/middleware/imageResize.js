@@ -2,7 +2,7 @@ const path = require("path");
 const sharp = require("sharp");
 
 function imageResize(req, res, next) {
-  sharp.cache(false);
+  
   if (!req.file) {
     return next();
   }

@@ -4,7 +4,6 @@ const path = require("path");
 const User = require("../model/User");
 
 exports.uploadImage = (req, res, next) => {
-  console.log(req.body);
   const { userId, size, uploaded_date } = req.body;
   const imageName = req.newFileName;
   const image = new Image(userId, imageName, size, "uploads", uploaded_date);
