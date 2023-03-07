@@ -16,7 +16,7 @@ function imageResize(req, res, next) {
       return sharp(req.file.path)
         .resize(size)
         .toFile(
-          path.join(__dirname, `../../uploads/${fileName}-${size}${ext}`)
+          path.join(__dirname, `../uploads/${fileName}-${size}${ext}`)
         );
     })
   )
