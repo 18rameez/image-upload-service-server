@@ -27,7 +27,9 @@ exports.getImage = (req, res, next) => {
     .then((result) => {
       if (result) {
         try {
-          res.sendFile(path.join(__dirname, "../uploads", imageName));
+          const imagePath = path.join(__dirname, "../uploads", imageName);
+          console.log(imagePath);
+          res.sendFile(imagePath);
         } catch (error) {
           console.log(error);
         }
